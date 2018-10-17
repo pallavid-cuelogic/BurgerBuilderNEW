@@ -1,4 +1,4 @@
-import {takeEvery, all} from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects';
 
 import * as actionTypes from '../actions/actionTypes';
 import {logoutSaga, checkAuthTimeoutSaga, authUserSaga, authCheckStateSaga} from './auth';

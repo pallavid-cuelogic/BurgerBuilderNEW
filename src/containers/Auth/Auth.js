@@ -59,8 +59,9 @@ class Auth extends Component {
             } )
         } );
         this.setState( { controls: updatedControls } );
-    }
 
+    }
+    
     submitHandler = ( event ) => {
         event.preventDefault();
         this.props.onAuth( this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup );
@@ -91,7 +92,8 @@ class Auth extends Component {
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
-        ) );
+            ) 
+        );
 
         if ( this.props.loading ) {
             form = <Spinner />
@@ -140,7 +142,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: ( email, password, isSignup ) => dispatch( actions.auth( email, password, isSignup ) ),
-        onSetAuthRedirectPath: () => dispatch( actions.setAuthRedirectPath( '/' ) )
+        onSetAuthRedirectPath: () => dispatch( actions.setAuthRedirectPath( '/' ) ),
     };
 };
 

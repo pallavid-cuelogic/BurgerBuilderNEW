@@ -20,9 +20,21 @@ const asyncAuth = asyncComponent(() => {
   return import('./containers/Auth/Auth');
 });
 
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignIn: () => dispatch( actions.authCheckState() )
+  };
+};
+
 class App extends Component {
   componentDidMount () {
-    this.props.onTryAutoSignup();
+    this.props.onTryAutoSignIn();
   }
 
   render () {
@@ -57,16 +69,27 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.auth.token !== null
-  };
-};
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )( App ) );
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTryAutoSignup: () => dispatch( actions.authCheckState() )
-  };
-};
 
-export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
+
+
+/*
+
+rules for firebase
+
+{
+  "rules": {
+    "ingredients":{
+    ".read": "true",
+    ".write": "true"
+    },
+    "orders":{
+    ".read": "auth!=null",
+    ".write": "auth!=null",
+    ".indexOn":["userId"]
+    }
+  }
+}
+
+*/  
