@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as actions from '../actions/index'; 
 
 export function* logoutSaga(action){
-    //cleaning of local storage
+    //cleaning local storage
     yield localStorage.removeItem('token');
     yield localStorage.removeItem('expirationDate');
     yield localStorage.removeItem('userId');
