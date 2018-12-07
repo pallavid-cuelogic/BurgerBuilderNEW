@@ -24,9 +24,9 @@ export function* authUserSaga(action){
         password: action.password,
         returnSecureToken: true
     };
-    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB2q_xkUDFCCmlxDyC-Ujjs_6yLDnQn4hw';
+    let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyAJEIljVz6v_1n0jgW-oNKjXPXnF6ScfJw';
     if (!action.isSignup) {
-        url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyB2q_xkUDFCCmlxDyC-Ujjs_6yLDnQn4hw';
+        url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyAJEIljVz6v_1n0jgW-oNKjXPXnF6ScfJw';
     }
     try{
     const response = yield axios.post(url, authData)

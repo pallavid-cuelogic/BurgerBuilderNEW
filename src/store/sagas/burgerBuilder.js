@@ -5,7 +5,7 @@ import * as actions from '../actions/index';
 
 export function* initIngredientsSaga(action){
     try{
-        const response=yield axios.get( 'https://burgerbuilderreactsaga.firebaseio.com/ingredients.json' )
+        const response=yield axios.get( 'https://myburgerbuilderprojectnew.firebaseio.com/ingredients.json' )
         yield put(actions.setIngredients(response.data));
     } catch(error){
         yield put(actions.fetchIngredientsFailed());
