@@ -100,7 +100,7 @@ class Auth extends Component {
                     this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
                 }
                 else {
-                    let errorMessage = <p> Password should be of minimum 8 characters, should contain atleast 1 uppercase letter, 1 lowercase letter, a digit, a special symbol and should not have spaces</p>
+                    let errorMessage = <p> Password should be of minimum 8 characters, should contain atleast 1 uppercase letter, 1 lowercase letter</p>
                     this.setState({
                     errorMessage : errorMessage,
                     });

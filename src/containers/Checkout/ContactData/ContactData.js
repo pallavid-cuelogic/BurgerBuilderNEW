@@ -21,7 +21,8 @@ class ContactData extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    isString: true
                 },
                 valid: false,
                 touched: false
